@@ -1,0 +1,59 @@
+<!OCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>welcome to Tode.js , My name is ${name} </title>
+<script id="222" name='22'>
+     var a  = document.getElementById("header"); 
+     //alert("333");
+</script>
+</head>
+<body>
+{{include header2}}
+<p id="header">header</p>
+<p>banner</p>
+<div>
+   <ul>
+   {{if($a>=5)}}
+        <li>Hope you are fine, and best's "wishes to your wife and children!</li>
+        <li>your name is ${name}. yes,my name is ${name} !! gaga!</li>
+		<ul>
+		{{if($b>5)}}
+		    <li>This is a loop for json object below11111. </li>
+	    {{elseif($c>7)}}	
+		   <li>This is a loop for json object below2222. </li>
+		     <ul> 
+		     {{for($i=0;$i<count($user);$i++)}}
+                 <li>This is ${user[$i]}. ${i}.</li>
+             {{/for}} 
+		     </ul>
+		   
+		{{else}}  
+		   <li>This is a loop for json object below3333. </li> 
+		{{/if}}
+		
+		<li>this for foreach</li>
+			 <ul> 
+			 {{foreach($user as $value)}}
+				 <li>This is foreach value is:${value}</li>
+			 {{/foreach}} 
+			 </ul>
+		
+		</ul>
+   {{else}}
+        <li> I'am not a 2 bi man; </li>     
+   {{/if}}
+   </ul>
+</div> 
+<div>
+	 <h1>${name}</h1>
+	 <h1>${name}</h1>
+</div>
+ <ul>
+ {{foreach($user as $value)}}
+	 <li>This is foreach value is:${value}</li>
+ {{/foreach}}
+ </ul>
+{{include footer}}
+</body>
+</html>	

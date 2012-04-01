@@ -1,0 +1,15 @@
+<p>包含文件 可支持所有变量标签等 例如 $name</p>
+<p>包含文件 可支持所有变量标签等 例如 ${name}  22222222222222</p>
+
+ <ul>
+ {{foreach($user as $value)}}
+	 <li>This is foreach value is:${value}</li>
+ {{/foreach}}
+ </ul>
+ 
+ 
+ 		     <ul> 
+		     {{for($i=0;$i<count($user);$i++)}}
+                 <li>This is ${user[$i]}. ${i}.</li>
+             {{/for}} 
+		     </ul>
