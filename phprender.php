@@ -5,7 +5,7 @@ if(isset( $_REQUEST['debug'] ) && $_REQUEST['debug'] == 1 )
 	sae_xhprof_start();
 }
 error_reporting(E_ALL);
-include_once 'phprender.class.php';
+include_once 'render.class.php';
 
 $render = new Render('templates');
 //$render->setCaching(true);
