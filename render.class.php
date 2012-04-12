@@ -92,7 +92,7 @@ class Render{
 			}	
 			else
 			{
-				$lines[$i] = preg_replace('/(?<!\$)\$\{(.*?)\}/','\'.\$$1.\'',$lines[$i]);
+				$lines[$i] = preg_replace('/(?<!\$)\$\{(.*?)\}/','\'.(\$$1).\'',$lines[$i]);
 				$lines[$i] = preg_replace('/\$\$\{(.*?)\}/','\${$1}',$lines[$i]);
 				$func .= '$__[] = \''.stripslashes($lines[$i]).'\';';
 			}
