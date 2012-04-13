@@ -49,7 +49,14 @@ class Render{
 	{		
 		$html = $this->getTmpl($this->tmplname);
 		$nfunc = $this->bulidTmplFunc(explode('\n',$html));
-		return implode("\n", $nfunc($parameters));	
+		if(!$nfunc)
+		{
+		    die('模板方法名异常');
+		}
+		else 
+		{
+			return implode("\n", $nfunc($parameters));	
+		}
 	}
 	
 	private function normalize($html)
@@ -63,6 +70,7 @@ class Render{
 
 	private function bulidTmplFunc($lines)
 	{
+		#$controlStatement = 0;
 		$func = 'extract($parameters);$__=array();';
 		$patt = '/\{\{(\/?)(\w+)(.*?)\}\}/';
 		for($i=0;$i<count($lines);$i++)
@@ -108,7 +116,7 @@ class Render{
         Header("Content-type: text/html");
 	    Header("Cache-Control: no-cache, must-revalidate");
 	    Header("Pragma: no-cache");	
-	    echo $html;		
+	    echo $html;	
 	}
 }
 
