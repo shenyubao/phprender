@@ -2,7 +2,8 @@
 /**
  * @todo a php template engine
  * @version 1.0.2
- * @author rongye@staff.sina.com.cn
+ * @author rongye@staff.sina.com.cn 
+ * @email chenrongye@sina.com
  * @date 2012.4.4
  * 用法：
  * 模板参考模板  "./templates/index.html"
@@ -102,11 +103,11 @@ class Render{
 			{
 				$lines[$i] = preg_replace('/(?<!\$)\$\{(.*?)\}/','\'.(\$$1).\'',$lines[$i]);
 				$lines[$i] = preg_replace('/\$\$\{(.*?)\}/','\${$1}',$lines[$i]);
-				$func .= '$__[] = \''.stripslashes($lines[$i]).'\';';
+				$lines[$i] = preg_replace("/\[\\\\'(\w+?)\\\\'\]/","['$1']",$lines[$i]);
+				$func .= '$__[] = \''.$lines[$i].'\';';
 			}
 		}			
 		$func  .= 'return $__;';
-		//echo $func;exit;
 		return create_function('$parameters',$func);	
 	}
 	public function __call($name,$arg)
@@ -116,7 +117,7 @@ class Render{
         Header("Content-type: text/html");
 	    Header("Cache-Control: no-cache, must-revalidate");
 	    Header("Pragma: no-cache");	
-	    echo $html;	
+	    echo stripslashes($html);
 	}
 }
 
